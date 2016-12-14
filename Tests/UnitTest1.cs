@@ -1,5 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Threading;
 using TestFramework;
 
 namespace Tests
@@ -18,8 +17,7 @@ namespace Tests
         public void CanGoToCoursesPage()
         {
             Pages.HomePage.GoTo();
-            Thread.Sleep(1000);
-            Pages.HomePage.SelectCourse("c-sharp-fundamentals-with-visual-studio-2015");
+            Pages.HomePage.SelectCourse("C# Fundamentals with Visual Studio 2015");
             Assert.IsTrue(Pages.HomePage.IsAtCoursePage("C# Fundamentals with Visual Studio 2015"));
         }
 

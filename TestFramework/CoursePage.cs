@@ -1,5 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
+using OpenQA.Selenium.Support.UI;
+using System;
 
 namespace TestFramework
 {
@@ -9,7 +11,13 @@ namespace TestFramework
         private IWebElement courseTitle;
         public string CourseTitle
         {
-            get { return courseTitle.Text; }
+            get
+            {
+                var wait = new WebDriverWait(Browser.Driver, TimeSpan.FromMinutes(1));
+                var courseTitle = wait.Until(ExpectedConditions.ElementExists(By.CssSelector("div.title h2")));
+
+                return courseTitle.Text;
+            }
         }
     }
 }
